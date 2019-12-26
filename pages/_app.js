@@ -4,6 +4,8 @@ import { parseCookies, destroyCookie } from "nookies";
 import { redirectUser } from "../utils/auth";
 import baseUrl from "../utils/baseUrl";
 import Axios from "axios";
+import Router from "next/router";
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const { token } = parseCookies(ctx);
@@ -42,6 +44,16 @@ class MyApp extends App {
 
     return { pageProps };
   }
+
+  componentDidMount() {
+    window.addEventListener("storage", this.syncLogout);
+  }
+
+  syncLogout = e => {
+    if (e.key === "logout") {
+      Router.push("/login");
+    }
+  };
 
   render() {
     const { Component, pageProps } = this.props;
