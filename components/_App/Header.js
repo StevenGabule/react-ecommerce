@@ -7,10 +7,8 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-function Header() {
-  const user = false;
+function Header({ user }) {
   const router = useRouter();
-
   function isActive(route) {
     return route === router.pathname;
   }
@@ -44,6 +42,7 @@ function Header() {
             </Menu.Item>
           </Link>
         )}
+
         {user ? (
           <>
             <Link href="/account">
