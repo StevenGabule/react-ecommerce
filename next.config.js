@@ -7,6 +7,6 @@ module.exports = {
     CLOUDINARY_URL: "https://api.cloudinary.com/v1_1/johnlook/image/upload",
     CLOUDINARY_API_KEY: "162639725592421",
     CLOUDINARY_API_SECRET: "G9Tndj3naStcQi9VmeMSsHZOrrE",
-    STRIPE_SECRET_KEY: "<insert-stripe-secret-key>"
+    STRIPE_SECRET_KEY: "sk_test_Mt0e9w6oIoxRFJXbmblOhwYi"
   }
 };
