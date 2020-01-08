@@ -6,11 +6,11 @@ import axios from "axios";
 import baseUrl from "../utils/baseUrl";
 import React from "react";
 
-function Cart({ products }) {
+function Cart({ products, user }) {
   return (
     <Segment>
-      <CartItemList />
-      <CartSummary />
+      <CartItemList products={products} user={user} />
+      <CartSummary products={products} />
     </Segment>
   );
 }
@@ -23,7 +23,6 @@ Cart.getInitialProps = async ctx => {
   const url = `${baseUrl}/api/cart`;
   const payload = { headers: { Authorization: token } };
   const response = await axios.get(url, payload);
-  console.log(response);
   return { products: response.data };
 };
 
