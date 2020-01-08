@@ -2,11 +2,12 @@ import Axios from "axios";
 import ProductSummary from "../components/Product/ProductSummary";
 import ProductAttributes from "../components/Product/ProductAttributes";
 import baseUrl from "../utils/baseUrl";
+import React from "react";
 
 function Product({ product, user }) {
   return (
     <>
-      <ProductSummary {...product} />
+      <ProductSummary user={user} {...product} />
       <ProductAttributes user={user} {...product} />
     </>
   );

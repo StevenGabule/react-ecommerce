@@ -4,9 +4,9 @@ import CartSummary from "../components/Cart/CartSummary";
 import { parseCookies } from "nookies";
 import axios from "axios";
 import baseUrl from "../utils/baseUrl";
+import React from "react";
 
 function Cart({ products }) {
-  console.log(products);
   return (
     <Segment>
       <CartItemList />
@@ -23,6 +23,7 @@ Cart.getInitialProps = async ctx => {
   const url = `${baseUrl}/api/cart`;
   const payload = { headers: { Authorization: token } };
   const response = await axios.get(url, payload);
+  console.log(response);
   return { products: response.data };
 };
 

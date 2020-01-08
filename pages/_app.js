@@ -3,8 +3,9 @@ import Layout from "../components/_App/Layout";
 import { parseCookies, destroyCookie } from "nookies";
 import { redirectUser } from "../utils/auth";
 import baseUrl from "../utils/baseUrl";
-import Axios from "axios";
+import axios from "axios";
 import Router from "next/router";
+import React from "react";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -25,7 +26,7 @@ class MyApp extends App {
       try {
         const payload = { headers: { Authorization: token } };
         const url = `${baseUrl}/api/account`;
-        const response = await Axios.get(url, payload);
+        const response = await axios.get(url, payload);
         const user = response.data;
         const isRoot = user.role === "root";
         const isAdmin = user.role === "admin";

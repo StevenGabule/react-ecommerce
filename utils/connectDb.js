@@ -17,7 +17,6 @@ async function connectDB() {
     })
     .catch(err => console.error(err));
 
-  console.log("DB connected");
   connection.isConnected = db.connections[0].readyState;
 }
 
