@@ -3,7 +3,6 @@ const connection = {};
 
 async function connectDB() {
   if (connection.isConnected) {
-    console.log("using existing connection");
     return;
   }
 
